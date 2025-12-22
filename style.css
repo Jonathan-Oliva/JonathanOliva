@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+    --terminal-green: #51ff00;
+}
+
+/* 1. CONFIGURACIÓN RAÍZ */
+html {
+    background-color: #050a02;
+    margin: 0;
+    padding: 0;
+    /* Bloqueo total al inicio */
+    overflow: hidden; 
+}
+
+/* Clase que inyectaremos con JS */
+html.active-scroll {
+    overflow-y: scroll !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--terminal-green);
+    font-family: 'VT323', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* 2. BARRA DE SCROLL (Visible a la derecha) */
+::-webkit-scrollbar {
+    width: 14px;
+}
+::-webkit-scrollbar-track {
+    background: #050a02;
+    border-left: 1px solid rgba(81, 255, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--terminal-green);
+    border: 3px solid #050a02;
+    box-shadow: 0 0 8px var(--terminal-green);
+}
+
+/* 3. CONTENEDOR TERMINAL */
+.terminal {
+    width: 90%;
+    max-width: 800px;
+    padding-top: 15vh; 
+    padding-bottom: 100px;
+    z-index: 5;
+    text-shadow: 0 0 5px rgba(81, 255, 0, 0.5);
+    animation: flicker 0.15s infinite;
+}
+
+/* EFECTOS CRT */
+.crt-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* ESTILOS DE TEXTO */
+.line { margin: 5px 0; font-size: 1.8rem; line-height: 1.2; white-space: pre-wrap; }
+.section-title { color: #fff; background: rgba(81, 255, 0, 0.3); padding: 2px 10px; margin: 20px 0 10px 0; display: inline-block; }
+.skill-item { font-size: 1.6rem; white-space: pre; }
+.cursor { display: inline-block; width: 10px; height: 20px; background: var(--terminal-green); animation: blink 0.8s infinite; vertical-align: middle; }
+
+@keyframes flicker { 0% { opacity: 0.97; } 100% { opacity: 1; } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
