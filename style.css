@@ -74,3 +74,16 @@ body {
 
 @keyframes flicker { 0% { opacity: 0.97; } 100% { opacity: 1; } }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.project-link {
+    color: var(--terminal-green); /* Usa el mismo verde */
+    text-decoration: underline;
+    cursor: pointer;
+    pointer-events: auto; /* Permite clics incluso si el body está bloqueado */
+}
+
+.project-link:hover {
+    background-color: var(--terminal-green);
+    color: #050a02; /* Efecto invertido al pasar el mouse */
+}
+

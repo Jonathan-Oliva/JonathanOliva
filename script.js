@@ -29,11 +29,23 @@ async function typeLine(text, speed = 30, isTitle = false, className = "line") {
     if (isTitle) line.classList.add('section-title');
     container.appendChild(line);
 
-    for (let char of text) {
-        line.textContent += char;
-        // Auto-scroll forzado en cada letra
-        window.scrollTo(0, document.documentElement.scrollHeight);
-        await new Promise(r => setTimeout(r, speed));
+    // Si el texto contiene HTML (como nuestro enlace), lo manejamos diferente
+    if (text.includes('<a')) {
+        // Escribimos la parte estática primero
+        const staticPart = text.split('<a')[0];
+        for (let char of staticPart) {
+            line.textContent += char;
+            await new Promise(r => setTimeout(r, speed));
+        }
+        // Insertamos el enlace de golpe para que sea funcional
+        line.innerHTML += text.substring(staticPart.length);
+    } else {
+        // Comportamiento normal para texto simple
+        for (let char of text) {
+            line.textContent += char;
+            window.scrollTo(0, document.documentElement.scrollHeight);
+            await new Promise(r => setTimeout(r, speed));
+        }
     }
 }
 
@@ -49,8 +61,21 @@ async function init() {
     isReadyToInteract = true;
 }
 
+// 1. Definimos la función de transición por separado para poder removerla
+async function handleTransition() {
+    if (isReadyToInteract) {
+        // Desactivamos la bandera inmediatamente
+        isReadyToInteract = false; 
+        
+        // 2. REMOVEMOS LOS EVENTOS: Ya no responderá a más teclas ni clics
+        window.removeEventListener('keydown', handleTransition);
+        window.removeEventListener('click', handleTransition);
+        
+        await showProfile();
+    }
+}
+
 async function showProfile() {
-    isReadyToInteract = false; 
     container.innerHTML = ""; 
     
     await typeLine(">>> ACCEDIENDO A BASE DE DATOS...", 50);
@@ -70,36 +95,24 @@ async function showProfile() {
 
     await typeLine("PROYECTOS RECIENTES", 20, true);
     await typeLine("> TODO_LIST.TS");
-    await typeLine("> WEB_PORTAFOLIO.REACT");
+    await typeLine("> WEB_PORTAFOLIO.HTML");
     await typeLine("> BOT_AUTOMATIZACION.PY");
     await typeLine("> VOTO_ELECTRONICO.JAVA");
 
     await typeLine("CONTACTO", 20, true);
     await typeLine("EMAIL: olivajonaj@gmail.com");
-    await typeLine("GITHUB: github.com/Jonathan-Oliva");
+    const githubLink = '<a href="https://github.com/Jonathan-Oliva" target="_blank" class="project-link">github.com/Jonathan-Oliva</a>' ;
+    await typeLine("GITHUB: " + githubLink);
     
     await typeLine("");
     await typeLine(">>> FIN DE LA TRANSMISIÓN. SISTEMA EN ESPERA_");
 
-    // Desbloqueo de scroll manual al final
-document.documentElement.classList.add('active-scroll');
-    isReadyToInteract = true;
+    // 3. Activamos el scroll
+    document.documentElement.classList.add('active-scroll');
 }
 
-async function typeLine(text, speed = 30, isTitle = false, className = "line") {
-    const line = document.createElement('div');
-    line.className = className;
-    if (isTitle) line.classList.add('section-title');
-    container.appendChild(line);
+// 4. Asignamos los eventos usando la función nombrada
+window.addEventListener('keydown', handleTransition);
+window.addEventListener('click', handleTransition);
 
-    for (let char of text) {
-        line.textContent += char;
-        // Scroll automático hacia el final del documento
-        window.scrollTo(0, document.documentElement.scrollHeight);
-        await new Promise(r => setTimeout(r, speed));
-    }
-}
-
-window.addEventListener('keydown', () => { if (isReadyToInteract) showProfile(); });
-window.addEventListener('click', () => { if (isReadyToInteract) showProfile(); });
 document.addEventListener('DOMContentLoaded', init);
