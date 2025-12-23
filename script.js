@@ -85,11 +85,17 @@ async function showProfile() {
     await typeLine("NOMBRE: JONATHAN OLIVA");
     await typeLine("ROL: BACKEND DEVELOPER");
     await typeLine("UBICACIÓN: Villa Mercedes, San Luis, Argentina");
+    
+    await typeLine("CONTACTO", 20, true);
+    await typeLine("EMAIL: olivajonaj@gmail.com");
+    const githubLink = '<a href="https://github.com/Jonathan-Oliva" target="_blank" class="project-link">github.com/Jonathan-Oliva</a>' ;
+    await typeLine("GITHUB: " + githubLink);
 
     await typeLine("HABILIDADES TÉCNICAS", 20, true);
     await typeLine("PYTHON      [######----]", 10, false, "skill-item");
-    await typeLine("JAVASCRIPT  [####------]", 10, false, "skill-item");
-    await typeLine("JAVA        [#####-----]", 10, false, "skill-item");
+    await typeLine("TYPESCRIPT  [#####-----]", 10, false, "skill-item");
+    await typeLine("NODEJS      [######----]", 10, false, "skill-item");
+    await typeLine("JAVA        [####------]", 10, false, "skill-item");
     await typeLine("SQL/NOSQL   [######----]", 10, false, "skill-item");
     await typeLine("INGLÉS      [######----]", 10, false, "skill-item");
 
@@ -99,11 +105,14 @@ async function showProfile() {
     await typeLine("> BOT_AUTOMATIZACION.PY");
     await typeLine("> VOTO_ELECTRONICO.JAVA");
 
-    await typeLine("CONTACTO", 20, true);
-    await typeLine("EMAIL: olivajonaj@gmail.com");
-    const githubLink = '<a href="https://github.com/Jonathan-Oliva" target="_blank" class="project-link">github.com/Jonathan-Oliva</a>' ;
-    await typeLine("GITHUB: " + githubLink);
-    
+
+
+    await typeLine("HABILIDADES BLANDAS", 20, true);
+    await typeLine("LIDERAZGO");
+    await typeLine("TRABAJO EN EQUIPO");
+    await typeLine("PENSAMIENTO CRÍTICO");
+    await typeLine("RESOLUCIÓN DE PROBLEMAS");
+
     await typeLine("");
     await typeLine(">>> FIN DE LA TRANSMISIÓN. SISTEMA EN ESPERA_");
 
