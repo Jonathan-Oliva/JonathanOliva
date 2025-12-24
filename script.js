@@ -100,10 +100,14 @@ async function showProfile() {
     await typeLine("INGLÉS      [######----]", 10, false, "skill-item");
 
     await typeLine("PROYECTOS RECIENTES", 20, true);
-    await typeLine("> TODO_LIST.TS");
-    await typeLine("> WEB_PORTAFOLIO.HTML");
-    await typeLine("> BOT_AUTOMATIZACION.PY");
-    await typeLine("> VOTO_ELECTRONICO.JAVA");
+    const project1Link = '<a href="https://github.com/Jonathan-Oliva/FunctionalTaskMaster-FINAL" target="_blank" class="project-link">ToDo_List.ts</a>';
+    await typeLine("> " + project1Link);
+    const project2Link = '<a href="https://github.com/Jonathan-Oliva/JonathanOliva" target="_blank" class="project-link">Portfolio_Website</a>';
+    await typeLine("> " + project2Link);
+    const project3Link = '<a href="https://github.com/Jonathan-Oliva/Bot-Automatizacion" target="_blank" class="project-link">Bot_Automatizacion.py</a>';
+    await typeLine("> " + project3Link);
+    const project4Link = '<a href="https://github.com/EnzoL1016/Proyecto-Unvime" target="_blank" class="project-link">Voto_Electronico.java</a>';
+    await typeLine("> " + project4Link);
 
 
 
