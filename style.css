@@ -9,13 +9,6 @@ html {
     background-color: #0e1e05;
     margin: 0;
     padding: 0;
-    /* Bloqueo total al inicio */
-    overflow: hidden; 
-}
-
-/* Clase que inyectaremos con JS */
-html.active-scroll {
-    overflow-y: scroll !important;
 }
 
 body {
@@ -34,10 +27,12 @@ body {
 ::-webkit-scrollbar {
     width: 14px;
 }
+
 ::-webkit-scrollbar-track {
     background: #050a02;
     border-left: 1px solid rgba(81, 255, 0, 0.1);
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--terminal-green);
     border: 3px solid #050a02;
@@ -48,7 +43,7 @@ body {
 .terminal {
     width: 90%;
     max-width: 800px;
-    padding-top: 15vh; 
+    padding-top: 15vh;
     padding-bottom: 100px;
     z-index: 5;
     text-shadow: 0 0 5px rgba(81, 255, 0, 0.5);
@@ -58,32 +53,129 @@ body {
 /* EFECTOS CRT */
 .crt-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
-                linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
+        linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
     background-size: 100% 3px, 3px 100%;
     pointer-events: none;
     z-index: 10;
 }
 
 /* ESTILOS DE TEXTO */
-.line { margin: 5px 0; font-size: 1.8rem; line-height: 1.2; white-space: pre-wrap; }
-.section-title { color: #fff; background: rgba(81, 255, 0, 0.3); padding: 2px 10px; margin: 20px 0 10px 0; display: inline-block; }
-.skill-item { font-size: 1.6rem; white-space: pre; }
-.cursor { display: inline-block; width: 10px; height: 20px; background: var(--terminal-green); animation: blink 0.8s infinite; vertical-align: middle; }
+.line {
+    margin: 5px 0;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    white-space: pre-wrap;
+}
 
-@keyframes flicker { 0% { opacity: 0.97; } 100% { opacity: 1; } }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.section-title {
+    color: #fff;
+    background: rgba(81, 255, 0, 0.3);
+    padding: 2px 10px;
+    margin: 20px 0 10px 0;
+    display: inline-block;
+}
+
+.skill-item {
+    font-size: 1.6rem;
+    white-space: pre;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: var(--terminal-green);
+    animation: blink 0.8s infinite;
+    vertical-align: middle;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.97;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
 
 .project-link {
-    color: var(--terminal-green); /* Usa el mismo verde */
+    color: var(--terminal-green);
+    /* Usa el mismo verde */
     text-decoration: underline;
     cursor: pointer;
-    pointer-events: auto; /* Permite clics incluso si el body está bloqueado */
+    pointer-events: auto;
+    /* Permite clics incluso si el body está bloqueado */
 }
 
 .project-link:hover {
     background-color: var(--terminal-green);
-    color: #050a02; /* Efecto invertido al pasar el mouse */
+    color: #050a02;
+    /* Efecto invertido al pasar el mouse */
 }
 
+/* 5. Utilidades y Accesibilidad */
+.top-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.control-btn {
+    background: transparent;
+    color: var(--terminal-green);
+    border: 1px solid var(--terminal-green);
+    padding: 10px 15px;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.control-btn:hover {
+    background: var(--terminal-green);
+    color: #050a02;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.skill-category {
+    font-weight: bold;
+    color: #fff;
+}
+
+.project-title {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 1.9rem;
+}

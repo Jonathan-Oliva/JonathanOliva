@@ -1,33 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan's Portfolio</title>
-    <meta name="description" content="Portafolio de Jonathan Oliva, Desarrollador Backend especializado en Python, SQL y automatización. Ubicado en San Luis, Argentina.">
+    <meta name="description"
+        content="Portafolio de Jonathan Oliva, Desarrollador Backend especializado en Python, SQL y automatización. Ubicado en San Luis, Argentina.">
     <link rel="icon" href="./images/usuario.png" type="image/png">
-    <meta name="keywords" content="Backend Developer, Python, Jonathan Oliva, San Luis, Argentina, Programador, Portafolio Retro">
+    <meta name="keywords"
+        content="Backend Developer, Python, Jonathan Oliva, San Luis, Argentina, Programador, Portafolio Retro">
 
     <meta property="og:title" content="Jonathan Oliva - Backend Developer">
-    <meta property="og:description" content="Explora mi terminal interactiva y conoce mis proyectos de desarrollo backend.">
+    <meta property="og:description"
+        content="Explora mi terminal interactiva y conoce mis proyectos de desarrollo backend.">
     <meta property="og:image" content="URL_DE_UNA_CAPTURA_DE_TU_WEB.jpg">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="crt-overlay"></div>
+    <div class="top-controls">
+        <button id="skip-btn" class="control-btn">[ SKIP ANIMATION - FAST ACCESS ]</button>
+        <button id="lang-btn" class="control-btn">ES</button>
+    </div>
 
     <main class="terminal">
         <div id="text-container"></div>
         <span class="cursor"></span>
     </main>
 
-    <section style="display:none;">
-    <h1>Jonathan Oliva - Desarrollador Backend</h1>
-    <p>Especialista en Python, JavaScript, React y bases de datos SQL/NoSQL.</p>
-    <p>Ubicado en Villa Mercedes, San Luis, Argentina. Proyectos destacados: TODO List TS,Voto Electrónico Java, Bot de Automatización Python y Web Portafolio React.</p>
-</section>
+    <section class="sr-only">
+        <h1>Jonathan Oliva - Staff Backend Developer & CEO</h1>
+        <p>Especialista en arquitectura Backend con Python (Django), Node.js y diseño de APIs. Fuerte enfoque en
+            concurrencia experta, bases de datos (PostgreSQL, SQL) y automatización.</p>
+        <p>Proyectos en producción: Gestor de Turnos Deportivos (Manejo de estados concurrentes) y Sistema de
+            Peluquerías. CEO en Nibble, enfocándose también en UI/UX y conceptualización de producto.</p>
+    </section>
 
     <script src="script.js"></script>
 </body>
+
 </html>
