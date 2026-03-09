@@ -9,6 +9,8 @@ html {
     background-color: #0e1e05;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 body {
@@ -21,6 +23,8 @@ body {
     align-items: center;
     min-height: 100vh;
     width: 100%;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 /* 2. BARRA DE SCROLL (Visible a la derecha) */
@@ -82,7 +86,8 @@ body {
 
 .skill-item {
     font-size: 1.6rem;
-    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .cursor {
@@ -178,4 +183,61 @@ body {
     color: #fff;
     margin-top: 15px;
     font-size: 1.9rem;
+}
+
+/* 6. Diseño Responsivo (Mobile & Tablets) */
+@media screen and (max-width: 768px) {
+    .terminal {
+        width: 95%;
+        padding-top: 10vh;
+        padding-bottom: 50px;
+    }
+
+    .line {
+        font-size: 1.3rem;
+        /* Letra ligeramente más pequeña para que encaje mejor */
+        word-wrap: break-word;
+        /* Para que los links largos de repo no rompan hacia el borde invisible */
+        white-space: pre-wrap;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+
+    .skill-item {
+        font-size: 1.2rem;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        margin: 15px 0 8px 0;
+    }
+
+    /* Adaptación de Botones Superiores */
+    .top-controls {
+        top: 10px;
+        right: 10px;
+        gap: 5px;
+    }
+
+    .control-btn {
+        padding: 6px 10px;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .line {
+        font-size: 1.15rem;
+    }
+
+    .project-link {
+        /* En teléfonos muy angostos forzamos que el link salte de línea antes de desbordar */
+        display: inline-block;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
 }
