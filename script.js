@@ -10,7 +10,7 @@ const i18n = {
         accessGranted: ">>> ACCESS GRANTED. LOADING SYSTEM_PROFILE...",
         personalDataTitle: "PERSONAL DATA",
         name: "NAME: JONATHAN OLIVA",
-        role: "ROLE: BACKEND DEVELOPER & TECH LEAD / CEO @ NIBBLE",
+        role: "ROLE: FULLSTACK DEVELOPER & TECH LEAD / CEO @ NIBBLE",
         location: "LOCATION: Villa Mercedes, San Luis, Argentina",
         techTitle: "TECH STACK AND ARCHITECTURE",
         techSubtitle: "> Languages and tools I use in production:",
@@ -22,15 +22,14 @@ const i18n = {
         project1: "1. SPORTS BOOKING SYSTEM (Nibble) - In Development",
         project1Desc1: "> Scalable back-end architecture implemented in Python/Django and Dockerized.",
         project1Desc2: "> Robust concurrency management: implemented temporal atomic locks to prevent overlapping court reservations.",
-        project1Repo: "> Backend Repo: <a href='https://github.com/Nibble-inc/GestorDeTurnos' target='_blank' class='project-link'>github.com/Nibble-inc/GestorDeTurnos</a>",
+        project1Demo: "> Live Demo: <a href='https://app.alapelotita.com.ar/' target='_blank' class='project-link'>app.alapelotita.com.ar</a>",
         project2: "2. HAIR SALON BOOKING SYSTEM",
         project2Desc1: "> REST API built with Node.js/Express for appointment self-management.",
         project2Desc2: "> Complex time-slot allocation logic based on business availability.",
-        project2Repo: "> Backend Repo: <a href='https://github.com/Jonathan-Oliva/Backend-Barber' target='_blank' class='project-link'>github.com/Jonathan-Oliva/Backend-Barber</a>",
         project2Demo: "> Live Demo: <a href='https://cirobarber.com.ar/' target='_blank' class='project-link'>cirobarber.com.ar</a>",
         project3: "3. NIBBLE STARTUP - CORPORATE PORTFOLIO",
         project3Desc1: "> As CEO, leading UI/UX design, branding (logos, aesthetics) and production web implementation.",
-        project3Demo: "> Demo: <a href='https://nibble-inc.github.io/Portfolio/' target='_blank' class='project-link'>nibble-inc.github.io/Portfolio</a>",
+        project3Demo: "> Demo: <a href='https://nibble-web-lemon.vercel.app/' target='_blank' class='project-link'>nibble-web-lemon.vercel.app</a>",
         project4: "4. ELECTRONIC VOTING SYSTEM (Auditing / Academic)",
         project4Desc1: "> Backend development focused on vote security and integrity, mentored directly by a Senior Engineer.",
         project4Desc2: "> Production Soft Skills: Technical representative, presenter, and system defender on local radio media.",
@@ -52,7 +51,7 @@ const i18n = {
         accessGranted: ">>> ACCESO CONCEDIDO. CARGANDO PERFIL_DEL_SISTEMA...",
         personalDataTitle: "DATOS PERSONALES",
         name: "NOMBRE: JONATHAN OLIVA",
-        role: "ROL: BACKEND DEVELOPER & TECH LEAD / CEO @ NIBBLE",
+        role: "ROL: FULLSTACK DEVELOPER & TECH LEAD / CEO @ NIBBLE",
         location: "UBICACIÓN: Villa Mercedes, San Luis, Argentina",
         contactTitle: "CONTACTO",
         emailLink: "EMAIL: <a href='mailto:olivajonaj@gmail.com' class='project-link'>[ INICIAR TRANSMISIÓN DE CORREO ]</a>",
@@ -65,18 +64,17 @@ const i18n = {
         infra: "<span class='skill-category'>INFRA & DATOS:</span> Docker, PostgreSQL, SQL, APIs RESTful",
         product: "<span class='skill-category'>PRODUCTO (UI/UX):</span> Conceptualización de Producto, Canva, Experiencia de Devs",
         projectsTitle: "PROYECTOS DESTACADOS",
-        project1: "1. GESTOR DE TURNOS DEPORTIVOS (Nibble) - En Desarrollo",
+        project1: "1. GESTOR DE TURNOS DEPORTIVOS (Nibble)",
         project1Desc1: "> Arquitectura back-end escalable implementada en Python/Django y Dockerizada.",
         project1Desc2: "> Manejo robusto de concurrencia: implementación de bloqueos atómicos temporales para evitar solapamientos en reservas de canchas.",
-        project1Repo: "> Repositorio Backend: <a href='https://github.com/Nibble-inc/GestorDeTurnos' target='_blank' class='project-link'>github.com/Nibble-inc/GestorDeTurnos</a>",
+        project1Demo: "> Demo Funcional: <a href='https://app.alapelotita.com.ar/' target='_blank' class='project-link'>app.alapelotita.com.ar</a>",
         project2: "2. SISTEMA DE RESERVAS PARA PELUQUERÍAS",
         project2Desc1: "> API REST construida con Node.js/Express para la autogestión de citas.",
         project2Desc2: "> Logica compleja de asignación de rangos horarios según la disponibilidad del negocio.",
-        project2Repo: "> Backend Repo: <a href='https://github.com/Jonathan-Oliva/Backend-Barber' target='_blank' class='project-link'>github.com/Jonathan-Oliva/Backend-Barber</a>",
         project2Demo: "> Demo Funcional: <a href='https://cirobarber.com.ar/' target='_blank' class='project-link'>cirobarber.com.ar</a>",
         project3: "3. NIBBLE STARTUP - PORTFOLIO CORPORATIVO",
         project3Desc1: "> Como CEO, liderando el diseño UI/UX, branding (logos, estética) y la implementación de la web productiva.",
-        project3Demo: "> Demo: <a href='https://nibble-inc.github.io/Portfolio/' target='_blank' class='project-link'>nibble-inc.github.io/Portfolio</a>",
+        project3Demo: "> Demo: <a href='https://nibble-web-lemon.vercel.app/' target='_blank' class='project-link'>nibble-web-lemon.vercel.app</a>",
         project4: "4. SISTEMA DE VOTO ELECTRÓNICO (Auditoría / Académico)",
         project4Desc1: "> Desarrollo Backend con foco en seguridad e integridad de sufragios, mentorizado directamente por un Ingeniero Senior.",
         project4Desc2: "> Soft Skills en Producción: Representante técnico, presentador y defensor del sistema en medios de radio locales.",
@@ -185,13 +183,12 @@ async function showProfile() {
     await typeLine(renderId, text.project1, 0, false, "project-title");
     await typeLine(renderId, text.project1Desc1);
     await typeLine(renderId, text.project1Desc2);
-    await typeLine(renderId, text.project1Repo);
+    await typeLine(renderId, text.project1Demo);
     await typeLine(renderId, "");
 
     await typeLine(renderId, text.project2, 0, false, "project-title");
     await typeLine(renderId, text.project2Desc1);
     await typeLine(renderId, text.project2Desc2);
-    await typeLine(renderId, text.project2Repo);
     await typeLine(renderId, text.project2Demo);
     await typeLine(renderId, "");
 
